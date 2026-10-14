@@ -198,7 +198,11 @@ function CommandMenu({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
 
           <div ref={listRef} id="cmd-results" role="listbox" className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto p-2">
             {groups.length === 0 && (
-              <p className="px-2.5 py-10 text-center text-sm text-site-soft">No results for “{query}”.</p>
+              <p className="px-2.5 py-10 text-center text-sm text-site-soft">
+                {items.length === 0
+                  ? "Nothing to search yet — the first components are being sliced."
+                  : `No results for “${query}”.`}
+              </p>
             )}
             {groups.map(({ group, items }) => (
               <div key={group} role="group" aria-label={group} className="flex flex-col gap-0.5">

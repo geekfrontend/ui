@@ -2,6 +2,7 @@ import { blocks } from "@/lib/catalog"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 import { BlockCard } from "@/components/site/block-card"
+import { EmptyState } from "@/components/site/empty-state"
 import { Hero } from "@/components/site/home/hero"
 import { ComponentsSection } from "@/components/site/home/components-section"
 import { SectionHeader } from "@/components/site/home/section-header"
@@ -21,13 +22,17 @@ export default function HomePage() {
             title="Blocks"
             description="Full sections and screens, built from the components above."
             href="/blocks"
-            cta="View all 42"
+            cta={blocks.length ? `View all ${blocks.length}` : undefined}
           />
-          <div className="grid gap-5 lg:grid-cols-2">
-            {blocks.map((item) => (
-              <BlockCard key={item.slug} item={item} />
-            ))}
-          </div>
+          {blocks.length === 0 ? (
+            <EmptyState kind="blocks" />
+          ) : (
+            <div className="grid gap-5 lg:grid-cols-2">
+              {blocks.map((item) => (
+                <BlockCard key={item.slug} item={item} />
+              ))}
+            </div>
+          )}
         </section>
         <FeedBand />
       </main>

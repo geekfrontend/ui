@@ -95,7 +95,9 @@ export function MobileMenu({ active }: { active?: string }) {
                       <Icon />
                     </span>
                     <span className="flex-1">{item.label}</span>
-                    {count !== undefined && <span className="font-mono text-xs font-normal text-site-mute">{count}</span>}
+                    {count !== undefined && (
+                      <span className="font-mono text-xs font-normal text-site-mute">{count > 0 ? count : "soon"}</span>
+                    )}
                     <ChevronRight className="size-4 text-site-mute" />
                   </Link>
                 )
