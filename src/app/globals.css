@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tokens — mirror "UI — Design System" in harke.dev.pen ───────────── */
+:root {
+  --site-bg: #fafaf9;
+  --site-surface: #ffffff;
+  --site-surface-2: #efeeec;
+  --site-ink: #111111;
+  --site-body: #4f4d4a;
+  --site-soft: #6f6c69;
+  --site-mute: #8c8985;
+  --site-line: #e8e6e3;
+  --site-border: #e2e0dc;
+  --site-pip: #cfccc8;
+
+  --ui-card: #f7f7f7;
+  --ui-ring: rgb(41 41 41 / 10%);
+  --ui-gloss: rgb(255 255 255 / 70%);
+  --ui-highlight: rgb(255 255 255 / 95%);
+  --ui-shade: rgb(0 0 0 / 6%);
+  --pill-ring: #242628;
+
+  --accent: #3366ff;
+  --accent-soft: rgb(51 102 255 / 10%);
+  --success: #1fc16b;
+  --warning: #f6a41e;
+  --destructive: #fb3748;
+  --code-bg: #0e0e0e;
+}
+
+.dark {
+  --site-bg: #000000;
+  --site-surface: #0e0e0e;
+  --site-surface-2: #1c1c1c;
+  --site-ink: #ededed;
+  --site-body: #b8b5b2;
+  --site-soft: #8a8885;
+  --site-mute: #6f6c69;
+  --site-line: #1e1e1e;
+  --site-border: #2e2e2e;
+  --site-pip: #3b3937;
+
+  --ui-card: #161616;
+  --ui-ring: rgb(255 255 255 / 8%);
+  --ui-gloss: rgb(255 255 255 / 5%);
+  --ui-highlight: rgb(255 255 255 / 12%);
+  --ui-shade: rgb(0 0 0 / 50%);
+  --pill-ring: #ffffff;
+}
+
+@theme inline {
+  --color-site-bg: var(--site-bg);
+  --color-site-surface: var(--site-surface);
+  --color-site-surface-2: var(--site-surface-2);
+  --color-site-ink: var(--site-ink);
+  --color-site-body: var(--site-body);
+  --color-site-soft: var(--site-soft);
+  --color-site-mute: var(--site-mute);
+  --color-site-line: var(--site-line);
+  --color-site-border: var(--site-border);
+  --color-site-pip: var(--site-pip);
+  --color-ui-card: var(--ui-card);
+  --color-ui-ring: var(--ui-ring);
+  --color-pill-ring: var(--pill-ring);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-code-bg: var(--code-bg);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-pixel: var(--font-pixelify), var(--font-geist-mono), monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+}
+
+/* ── Elevation — flat / raised / panel / wrapper ─────────────────────── */
+@utility elevation-raised {
+  box-shadow:
+    0 1px 2px var(--ui-shade),
+    inset 0 1px 0 var(--ui-highlight);
+  border: 1px solid var(--ui-ring);
+}
+
+@utility elevation-panel {
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / 8%),
+    0 3px 6px var(--ui-shade),
+    0 10px 20px var(--ui-shade),
+    inset 0 1px 0 var(--ui-highlight),
+    inset 0 -1px 1px rgb(0 0 0 / 6%);
+  border: 1px solid var(--ui-ring);
+}
+
+@utility elevation-wrapper {
+  background-image: linear-gradient(to bottom, var(--ui-gloss), transparent 60%);
+  box-shadow:
+    0 1px 2px var(--ui-shade),
+    0 8px 20px var(--ui-shade),
+    inset 0 1px 0 var(--ui-highlight),
+    inset 0 -1px 0 rgb(0 0 0 / 4%);
+  border: 1px solid var(--ui-ring);
+}
+
+/* Small raised pieces inside previews (dock items, pills, boxes) */
+@utility elevation-item {
+  box-shadow:
+    0 1px 2px var(--ui-shade),
+    0 6px 14px var(--ui-shade),
+    inset 0 1px 0 var(--ui-highlight);
+  border: 1px solid var(--ui-ring);
+}
+
+/* Basic pill: surface + border + soft drop (UI / Button / Basic) */
+@utility pill-basic {
+  background-color: var(--site-surface);
+  border: 1px solid var(--site-border);
+  box-shadow: 0 1px 3px rgb(14 18 27 / 12%);
+}
+
+/* Pill buttons: gloss + 1px ring + inset highlight */
+@utility pill-gloss {
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 12%), transparent);
+  box-shadow:
+    0 1px 2px rgb(27 28 29 / 48%),
+    inset 0 1px 0 rgb(255 255 255 / 16%);
+}
+
+@layer base {
+  body {
+    @apply bg-site-bg text-site-ink font-sans antialiased;
+  }
+}

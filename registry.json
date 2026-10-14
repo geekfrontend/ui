@@ -1,0 +1,223 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "harke",
+  "homepage": "https://ui.harke.dev",
+  "items": [
+    {
+      "name": "pill-dock",
+      "type": "registry:component",
+      "title": "Pill Dock",
+      "description": "A raised dock that magnifies on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/pill-dock/pill-dock.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "raised-card",
+      "type": "registry:component",
+      "title": "Raised Card",
+      "description": "Embossed card with a glare that follows the cursor.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/raised-card/raised-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "terminal-card",
+      "type": "registry:component",
+      "title": "Terminal Card",
+      "description": "A terminal that types itself, line by line.",
+      "files": [
+        {
+          "path": "src/registry/harke/terminal-card/terminal-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pixel-text",
+      "type": "registry:component",
+      "title": "Pixel Text",
+      "description": "Headlines that resolve pixel by pixel.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/pixel-text/pixel-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stat-ticker",
+      "type": "registry:component",
+      "title": "Stat Ticker",
+      "description": "Numbers count up, bars grow in.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/stat-ticker/stat-ticker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "code-peek",
+      "type": "registry:component",
+      "title": "Code Peek",
+      "description": "Lift the preview to peek at the code.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/code-peek/code-peek.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "browser-frame",
+      "type": "registry:component",
+      "title": "Browser Frame",
+      "description": "A browser window with URL pill and scroll.",
+      "files": [
+        {
+          "path": "src/registry/harke/browser-frame/browser-frame.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "selection-box",
+      "type": "registry:component",
+      "title": "Selection Box",
+      "description": "Figma-style selection with handles and size.",
+      "files": [
+        {
+          "path": "src/registry/harke/selection-box/selection-box.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cursor-tag",
+      "type": "registry:component",
+      "title": "Cursor Tag",
+      "description": "Multiplayer cursors with name pills.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/cursor-tag/cursor-tag.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pill-nav",
+      "type": "registry:component",
+      "title": "Pill Nav",
+      "description": "Pill navigation with a sliding indicator.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/pill-nav/pill-nav.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "copy-pill",
+      "type": "registry:component",
+      "title": "Copy Pill",
+      "description": "An install command that flips to a check.",
+      "files": [
+        {
+          "path": "src/registry/harke/copy-pill/copy-pill.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feed-stack",
+      "type": "registry:component",
+      "title": "Feed Stack",
+      "description": "Stacked posts that fan out on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/harke/feed-stack/feed-stack.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:component",
+      "title": "Spotlight Card",
+      "description": "A dark card lit by your cursor.",
+      "files": [
+        {
+          "path": "src/registry/harke/spotlight-card/spotlight-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tech-marquee",
+      "type": "registry:component",
+      "title": "Tech Marquee",
+      "description": "An endless strip of stack pills.",
+      "files": [
+        {
+          "path": "src/registry/harke/tech-marquee/tech-marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "keycap",
+      "type": "registry:component",
+      "title": "Keycap",
+      "description": "3D keys that press down. ⌘K included.",
+      "files": [
+        {
+          "path": "src/registry/harke/keycap/keycap.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "grid-paper",
+      "type": "registry:component",
+      "title": "Grid Paper",
+      "description": "A snapping grid paper canvas.",
+      "files": [
+        {
+          "path": "src/registry/harke/grid-paper/grid-paper.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
