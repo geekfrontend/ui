@@ -102,7 +102,7 @@ export function MobileMenu({ active }: { active?: string }) {
               })}
             </nav>
 
-            <div className="flex items-center gap-2.5 rounded-[14px] bg-site-surface-2 px-3.5 py-3 text-sm text-site-mute shadow-[inset_0_1px_2px_rgb(0_0_0/6%)]">
+            <div aria-disabled="true" className="flex cursor-not-allowed items-center gap-2.5 rounded-[14px] bg-site-surface-2 px-3.5 py-3 text-sm text-site-mute shadow-[inset_0_1px_2px_rgb(0_0_0/6%)] select-none">
               <Smartphone className="size-4" />
               <span className="flex-1">mobile.harke.dev</span>
               <span className="rounded-full bg-site-bg px-[7px] py-px font-mono text-[10px] text-site-soft">Coming soon</span>

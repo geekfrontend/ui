@@ -7,7 +7,10 @@ export function SiteFooter() {
       <p>Built by Harke on Base UI · pixel-perfect UI for the web</p>
       <nav className="flex flex-wrap gap-x-6 gap-y-2">
         <a href={site.links.home}>harke.dev</a>
-        <a href={site.links.mobile}>mobile.harke.dev</a>
+        <span aria-disabled="true" title="Coming soon" className="flex cursor-not-allowed items-center gap-1.5 select-none">
+          <span className="text-site-mute opacity-60">mobile.harke.dev</span>
+          <span className="rounded-full bg-site-surface-2 px-[7px] py-px font-mono text-[10px] text-site-mute">Soon</span>
+        </span>
         <a href={site.links.github}>GitHub</a>
         <a href="/changelog">Changelog</a>
         <a href={site.links.license}>License</a>

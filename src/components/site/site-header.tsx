@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Search } from "lucide-react"
+import { Search } from "lucide-react"
 import { site } from "@/lib/site"
 import { GitHubIcon, HarkeMark } from "@/components/icons/brand"
 import { Kbd } from "@/components/ui/kbd"
@@ -29,11 +29,11 @@ export function SiteHeader({ active }: { active?: string }) {
               {item.label}
             </Link>
           ))}
-          <a href={site.links.mobile} className="flex items-center gap-1.5 text-site-soft hover:text-site-ink">
-            mobile.harke.dev
-            <ArrowUpRight className="size-[13px] text-site-mute" />
-            <span className="rounded-xs bg-accent-soft px-1.5 py-px text-[11px] font-medium text-accent">Soon</span>
-          </a>
+          {/* Not live yet — shown but not navigable until mobile.harke.dev launches. */}
+          <span aria-disabled="true" title="Coming soon" className="flex cursor-not-allowed items-center gap-1.5 select-none">
+            <span className="text-site-mute opacity-60">mobile.harke.dev</span>
+            <span className="rounded-full bg-site-surface-2 px-[7px] py-px font-mono text-[10px] text-site-mute">Soon</span>
+          </span>
         </nav>
       </div>
       <div className="hidden items-center gap-3 lg:flex">
