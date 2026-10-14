@@ -1,7 +1,12 @@
+import { pageMetadata } from "@/lib/metadata"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 
-export const metadata = { title: "Blocks" }
+export const metadata = pageMetadata({
+  title: "Blocks",
+  description: "Full sections and screens built from harke/ui components — pricing, dashboards, auth and heroes.",
+  path: "/blocks",
+})
 
 // See "UI — Blocks" in harke.dev.pen
 export default function BlocksPage() {

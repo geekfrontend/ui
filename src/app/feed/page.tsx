@@ -1,7 +1,12 @@
+import { pageMetadata } from "@/lib/metadata"
 import { SiteHeader } from "@/components/site/site-header"
 import { FooterFeature } from "@/components/site/footer-feature"
 
-export const metadata = { title: "From the feed" }
+export const metadata = pageMetadata({
+  title: "From the feed",
+  description: "Every Instagram and TikTok post from @harke.dev, with the code behind it.",
+  path: "/feed",
+})
 
 // "UI — From the Feed" — the only page with the TRAE-style feature footer.
 export default function FeedPage() {

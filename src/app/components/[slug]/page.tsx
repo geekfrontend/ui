@@ -1,5 +1,7 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { components, getComponent } from "@/lib/catalog"
+import { pageMetadata } from "@/lib/metadata"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 import { CodeBlock } from "@/components/site/code-block"
@@ -7,6 +9,17 @@ import { Badge } from "@/components/ui/badge"
 
 export function generateStaticParams() {
   return components.map((c) => ({ slug: c.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const item = getComponent(slug)
+  if (!item) return {}
+  return pageMetadata({
+    title: `${item.name} — React component`,
+    description: item.description,
+    path: `/components/${item.slug}`,
+  })
 }
 
 // "UI — Component · Pill Dock" — Preview, Customize, Installation, Usage, Props, Dependencies, Related.

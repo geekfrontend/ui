@@ -1,9 +1,14 @@
+import { pageMetadata } from "@/lib/metadata"
 import { components } from "@/lib/catalog"
 import { ComponentCard } from "@/components/site/component-card"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 
-export const metadata = { title: "Components" }
+export const metadata = pageMetadata({
+  title: "Components",
+  description: "Custom, animated React components — raised, pixel-perfect and installable as source with the shadcn CLI.",
+  path: "/components",
+})
 
 export default function ComponentsPage() {
   return (
