@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google"
 import { ThemeProvider } from "@/components/site/theme-provider"
+import { SearchProvider } from "@/components/site/command-menu"
 import { site } from "@/lib/site"
 import "./globals.css"
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} ${pixelify.variable}`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SearchProvider>{children}</SearchProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

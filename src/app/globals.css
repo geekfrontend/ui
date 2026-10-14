@@ -136,6 +136,56 @@
     inset 0 1px 0 rgb(255 255 255 / 16%);
 }
 
+/* ── Theme switcher — UI / Theme Switcher ─────────────────────────── */
+@utility theme-thumb-light {
+  background: linear-gradient(to bottom, #ffc24d, #ff8a00);
+  box-shadow:
+    0 2px 8px rgb(255 138 0 / 35%),
+    inset 0 1px 0 rgb(255 255 255 / 45%);
+}
+
+@utility theme-thumb-dark {
+  background: linear-gradient(to bottom, #4d7dff, #1a2b80);
+  box-shadow:
+    0 2px 8px rgb(51 102 255 / 35%),
+    inset 0 1px 0 rgb(255 255 255 / 30%);
+}
+
+@utility theme-thumb-system {
+  background: linear-gradient(to bottom, color-mix(in oklab, var(--site-ink) 85%, white), var(--site-ink));
+  box-shadow:
+    0 2px 8px var(--ui-shade),
+    inset 0 1px 0 rgb(255 255 255 / 20%);
+}
+
+/* Circular reveal from the clicked button. Scoped to .theme-switching so
+   route-level <ViewTransition> animations keep their own defaults. */
+:root.theme-switching::view-transition-old(root),
+:root.theme-switching::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+:root.theme-switching::view-transition-new(root) {
+  animation: theme-reveal 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--theme-x, 50%) var(--theme-y, 0));
+  }
+  to {
+    clip-path: circle(150vmax at var(--theme-x, 50%) var(--theme-y, 0));
+  }
+}
+
+/* Theme switch reveal — ThemeSwitcher animates a clip-path on the new snapshot */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @layer base {
   body {
     @apply bg-site-bg text-site-ink font-sans antialiased;

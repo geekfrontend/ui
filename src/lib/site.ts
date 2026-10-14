@@ -14,9 +14,9 @@ export const site = {
     instagram: "https://instagram.com/harke.dev",
     tiktok: "https://tiktok.com/@harke.dev",
     threads: "https://threads.net/@harke.dev",
-    github: "https://github.com/harke",
+    github: "https://github.com/geekfrontend/ui",
     home: "https://harke.dev",
     mobile: "https://mobile.harke.dev",
-    license: "https://github.com/harke/ui/blob/main/LICENSE",
+    license: "https://github.com/geekfrontend/ui/blob/main/LICENSE",
   },
 } as const

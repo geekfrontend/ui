@@ -1,10 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy } from "lucide-react"
+import { Check, Copy, MousePointer2 } from "lucide-react"
 import { useCopy } from "@/hooks/use-copy"
 import { buttonVariants } from "@/components/ui/button"
-import { StatCardPreview } from "@/components/site/previews"
 import { cn } from "@/lib/utils"
 
 // Hero "Featured" card — № 000 from the feed, with Preview / Code tabs.
@@ -21,15 +20,14 @@ type Token = [keyof typeof c, string]
 
 const lines: Token[][] = [
   [["comment", "// ui.harke.dev/000-hello-world"]],
-  [["keyword", "import "], ["plain", "{ Card } "], ["keyword", "from "], ["string", '"@/components/ui/card"']],
+  [["keyword", "import "], ["plain", "{ PixelText } "], ["keyword", "from "], ["string", '"@/components/pixel-text"']],
+  [["keyword", "import "], ["plain", "{ SelectionBox } "], ["keyword", "from "], ["string", '"@/components/selection-box"']],
   [],
-  [["keyword", "export function "], ["tag", "StatCard"], ["plain", "() {"]],
+  [["keyword", "export function "], ["tag", "HelloWorld"], ["plain", "() {"]],
   [["keyword", "  return "], ["plain", "("]],
-  [["tag", "    <Card "], ["attr", "className"], ["plain", "="], ["string", '"p-4 gap-2"'], ["tag", ">"]],
-  [["tag", "      <Delta "], ["attr", "value"], ["plain", "={12.4}"], ["tag", " />"]],
-  [["tag", "      <Value>"], ["plain", "$48,210"], ["tag", "</Value>"]],
-  [["tag", "      <Bars "], ["attr", "data"], ["plain", "={revenue}"], ["tag", " />"]],
-  [["tag", "    </Card>"]],
+  [["tag", "    <SelectionBox "], ["attr", "rotate"], ["plain", "={-3}"], ["tag", ">"]],
+  [["tag", "      <PixelText>"], ["plain", "HELLO WORLD"], ["tag", "</PixelText>"]],
+  [["tag", "    </SelectionBox>"]],
   [["plain", "  )"]],
   [["plain", "}"]],
 ]
@@ -38,7 +36,7 @@ const source = lines.map((l) => l.map(([, t]) => t).join("")).join("\n")
 const stack = ["Base UI", "React", "Next.js", "TypeScript", "Tailwind"]
 
 export function FeaturedSnippet({ className }: { className?: string }) {
-  const [tab, setTab] = useState<"preview" | "code">("code")
+  const [tab, setTab] = useState<"preview" | "code">("preview")
   const { copied, copy } = useCopy()
 
   return (
@@ -46,7 +44,7 @@ export function FeaturedSnippet({ className }: { className?: string }) {
       <div className="flex items-center justify-between py-3 pr-3 pl-4">
         <span className="flex items-center gap-2 font-mono">
           <span className="text-xs text-accent">№ 000</span>
-          <span className="text-[13px]">stat-card.tsx</span>
+          <span className="text-[13px]">hello-world.tsx</span>
         </span>
         <span role="tablist" className="flex gap-0.5 rounded-[9px] bg-site-surface-2 p-[3px]">
           {(["preview", "code"] as const).map((t) => (
@@ -87,11 +85,11 @@ export function FeaturedSnippet({ className }: { className?: string }) {
         </pre>
         <div
           className={cn(
-            "col-start-1 row-start-1 grid place-items-center rounded-lg bg-site-surface elevation-panel",
+            "col-start-1 row-start-1 flex items-center justify-center overflow-hidden rounded-lg bg-site-surface elevation-panel",
             tab !== "preview" && "invisible",
           )}
         >
-          <StatCardPreview />
+          <HelloWorldPreview />
         </div>
       </div>
 
@@ -110,6 +108,33 @@ export function FeaturedSnippet({ className }: { className?: string }) {
           {copied ? "Copied" : "Copy code"}
         </button>
       </div>
+    </div>
+  )
+}
+
+// "Code" preview frame on the hero — pixel headline in a tilted Figma-style selection.
+function HelloWorldPreview() {
+  const handle = "absolute size-2.5 border-[1.5px] border-accent bg-site-surface"
+  return (
+    <div className="relative h-[306px] w-[532px] shrink-0 max-sm:scale-[0.62]">
+      <div className="absolute top-[37px] left-[83px] origin-top-left -rotate-3 border-[1.5px] border-accent px-5 py-3">
+        <p className="font-pixel text-[92px] leading-[0.88] font-bold tracking-[2px] text-accent">
+          HELLO
+          <br />
+          WORLD
+        </p>
+        <span className={cn(handle, "-top-[5px] -left-[5px]")} />
+        <span className={cn(handle, "-top-[5px] -right-[5px]")} />
+        <span className={cn(handle, "-bottom-[5px] -left-[5px]")} />
+        <span className={cn(handle, "-right-[5px] -bottom-[5px]")} />
+      </div>
+      <span className="absolute top-[253px] left-[93px] origin-top-left -rotate-3 rounded-[4px] bg-accent px-[7px] py-0.5 font-mono text-[10px] text-white">
+        344 × 186
+      </span>
+      <span className="absolute top-[249px] left-[433px] flex flex-col gap-0.5">
+        <MousePointer2 className="size-5 text-accent" />
+        <span className="rounded-full bg-accent px-[9px] py-[3px] text-[11px] font-semibold text-white">harke</span>
+      </span>
     </div>
   )
 }
